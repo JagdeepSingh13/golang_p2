@@ -10,6 +10,7 @@ import (
 func ResolveURL(c *fiber.Ctx) error {
 	url := c.Params("url")
 
+	// connects to Redis database 0, which stores short URL mappings.
 	r := database.CreateClient(0)
 	defer r.Close()
 
@@ -21,6 +22,7 @@ func ResolveURL(c *fiber.Ctx) error {
 		return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{"error": "cannot connect to DB"})
 	}
 
+	// connects to Redis database 1, which is used to increment the "counter" key.
 	rInr := database.CreateClient(1)
 	defer rInr.Close()
 
