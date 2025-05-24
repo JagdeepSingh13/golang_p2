@@ -1,5 +1,8 @@
 package main
 
+// docker-compose up -d
+// docker-compose stop
+
 import (
 	"fmt"
 	"log"
