@@ -71,7 +71,7 @@ func CreateTask(w http.ResponseWriter, r *http.Request) {
 	var task models.ToDoList
 	json.NewDecoder(r.Body).Decode(&task)
 
-	json.NewDecoder(r.Body).Decode(&task)
+	// json.NewDecoder(r.Body).Decode(&task)
 	// if err != nil || strings.TrimSpace(task.Task) == "" {
 	// 	http.Error(w, "Task cannot be empty", http.StatusBadRequest)
 	// 	return
