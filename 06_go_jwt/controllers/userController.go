@@ -122,7 +122,7 @@ func Login() gin.HandlerFunc {
 
 		token, refreshToken, _ := helpers.GenerateAllTokens(*foundUser.Email, *foundUser.Name, *foundUser.User_type, foundUser.User_id)
 
-		helper.UpdateAllTokens(token, refreshToken, foundUser.User_id)
+		helpers.UpdateAllTokens(token, refreshToken, foundUser.User_id)
 
 		err = userCollection.FindOne(ctx, bson.M{"user_id": foundUser.User_id}).Decode(&foundUser)
 		if err != nil {
