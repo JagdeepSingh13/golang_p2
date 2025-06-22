@@ -6,7 +6,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func checkUserType(c *gin.Context, role string) (err error) {
+func CheckUserType(c *gin.Context, role string) (err error) {
 	userType := c.GetString("user_type")
 	err = nil
 	if userType != role {
@@ -25,6 +25,6 @@ func MatchUserTypeToUid(c *gin.Context, userId string) (err error) {
 		err = errors.New("unauthorized access")
 		return err
 	}
-	err = checkUserType(c, userType)
+	err = CheckUserType(c, userType)
 	return err
 }
